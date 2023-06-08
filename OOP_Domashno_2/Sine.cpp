@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Sine.h"
+#include "Constant.h"
 
 double factorial(double n) {
 	{
@@ -10,20 +11,22 @@ double factorial(double n) {
 	}
 }
 
-Sine::Sine(double expr, int approx) {
+Sine::Sine(MathExpression* expr, int approx) {
 	expression = expr;
 	approximate = approx;
 }
 
 double Sine::evaluate()const {
-	double radians = expression * 3.14159 / 180.0;
+	Constant radians( expression->evaluate() * 3.14159 / 180.0);
 	double result = 0.0;
+	Constant cons1(-1);
 	for (int n = 0; n <= approximate; ++n) {
-		result += (Power(-1, n).evaluate() / factorial(2 * n + 1)) * Power(radians, 2 * n + 1).evaluate();
+		result += (Power(&cons1, n).evaluate() / factorial(2 * n + 1)) * Power(&radians, 2 * n + 1).evaluate();
 	}
 	return result;
 }
-
 void Sine::print()const {
-	std::cout << "The expression is: " << "sin(" << expression << ")";
+	std::cout << "sin("; 
+	expression->print();
+	std::cout << ")";
 }

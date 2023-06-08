@@ -2,16 +2,15 @@
 #include <iostream>
 #include "MathExpression.h"
 #include "Power.h"
-
-
+#include <vector>
 
 class Sine : public MathExpression {
 private:
-	double expression;
+	MathExpression* expression;
 	int approximate;
 public:
 	Sine() = default;
-	Sine(double expr, int approx);
+	Sine(MathExpression* expr, int approx);
 	double evaluate()const override;
 	void print()const override;
 };

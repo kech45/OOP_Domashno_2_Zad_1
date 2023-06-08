@@ -11,6 +11,6 @@ double Constant::evaluate()const {
 }
 
 void Constant:: print()const  {
-	std::cout << "Your constant is: " << this->constant << "\n";
+	std::cout << this->constant;
 }
 
