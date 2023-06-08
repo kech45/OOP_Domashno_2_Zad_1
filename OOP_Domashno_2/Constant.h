@@ -11,5 +11,4 @@ public:
 	double evaluate()const override;
 	void print()const override;
 		
-
 };
