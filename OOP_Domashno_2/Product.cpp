@@ -4,14 +4,14 @@
 
 Product::Product(int cap) {
 	capacity = cap;
-	arr = new double[capacity];
+	arr = new MathExpression*[capacity];
 }
 
 Product::~Product() {
 delete arr;
 }
 
-void Product::addElement(double n) {
+void Product::addElement(MathExpression* n) {
 	if (size == capacity) {
 		throw 5;
 	}
@@ -23,24 +23,25 @@ double Product::evaluate()const {
 	double produce = 1;
 	for (size_t i = 0; i < size; i++)
 	{
-		produce *= arr[i];
+		produce *= arr[i]->evaluate();
 	}
 	return produce;
 }
 
 void Product::print()const {
-	std::cout << "The produce is: ";
 	for (size_t i = 0; i < size; i++)
 	{
 		if (i == 0) {
-			std::cout << arr[i];
+			arr[i]->print();
 		}
-		else if (arr[i] < 0) {
-			std::cout << "*" << "(" << arr[i] << ")";
+		else if (arr[i]->evaluate() < 0) {
+			std::cout << "*" << "("; 
+			arr[i]->print();
+			std::cout << ")";
 		}
 		else {
-			std::cout << "*" << arr[i];
+			std::cout << "*";
+			arr[i]->print();
 		}
 	}
-	std::cout << std::endl;
 }
