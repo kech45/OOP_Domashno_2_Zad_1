@@ -130,7 +130,7 @@
   <ItemGroup>
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="MathExpression.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Zad1_main.cpp" />
     <ClCompile Include="Power.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="Sine.cpp" />

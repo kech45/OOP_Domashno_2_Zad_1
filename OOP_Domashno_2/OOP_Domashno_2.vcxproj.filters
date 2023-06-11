@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Zad1_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MathExpression.cpp">
